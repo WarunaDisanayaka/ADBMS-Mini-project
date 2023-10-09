@@ -8,6 +8,6 @@ public class TestController {
 
     @GetMapping("/welcome")
     public String welcome(){
-        return "Hello I in AWS";
+        return "Hello I am in aws";
     }
 }

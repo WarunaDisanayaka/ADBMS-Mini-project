@@ -13,7 +13,7 @@ public class DatabaseController {
     @Autowired
     private DataSource dataSource;
 
-    @GetMapping("/checkdatabase")
+    @GetMapping("/check-database")
     public String checkDatabase() {
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement()) {

@@ -28,6 +28,9 @@ public class UsersEntity {
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "role_id", nullable = false)
     private RolesEntity rolesByRoleId;
+    @Basic
+    @Column(name = "username")
+    private String username;
 
     public String getFullName() {
         return fullName;
@@ -109,5 +112,13 @@ public class UsersEntity {
 
     public void setRolesByRoleId(RolesEntity rolesByRoleId) {
         this.rolesByRoleId = rolesByRoleId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -9,36 +9,36 @@ import java.util.Collection;
 public class RoomsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "room_id")
-    private int roomId;
+    @Column(name = "room_no")
+    private int roomNo;
     @Basic
-    @Column(name = "type")
-    private String type;
+    @Column(name = "hostal")
+    private String hostal;
     @Basic
     @Column(name = "floor")
     private Integer floor;
     @Basic
-    @Column(name = "no_of_students")
-    private Integer noOfStudents;
-    @OneToMany(mappedBy = "roomsByRoomId")
-    private Collection<AssetsEntity> assetsByRoomId;
-    @OneToMany(mappedBy = "roomsByRoomId")
-    private Collection<ComplainsEntity> complainsByRoomId;
+    @Column(name = "room_type")
+    private String roomType;
+    @OneToMany(mappedBy = "roomsByRoomNo")
+    private Collection<AssetsEntity> assetsByRoomNo;
+    @OneToMany(mappedBy = "roomsByRoomNo")
+    private Collection<ComplainsEntity> complainsByRoomNo;
 
-    public int getRoomId() {
-        return roomId;
+    public int getRoomNo() {
+        return roomNo;
     }
 
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
+    public void setRoomNo(int roomNo) {
+        this.roomNo = roomNo;
     }
 
-    public String getType() {
-        return type;
+    public String getHostal() {
+        return hostal;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setHostal(String hostal) {
+        this.hostal = hostal;
     }
 
     public Integer getFloor() {
@@ -49,12 +49,12 @@ public class RoomsEntity {
         this.floor = floor;
     }
 
-    public Integer getNoOfStudents() {
-        return noOfStudents;
+    public String getRoomType() {
+        return roomType;
     }
 
-    public void setNoOfStudents(Integer noOfStudents) {
-        this.noOfStudents = noOfStudents;
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
     }
 
     @Override
@@ -64,36 +64,36 @@ public class RoomsEntity {
 
         RoomsEntity that = (RoomsEntity) o;
 
-        if (roomId != that.roomId) return false;
-        if (type != null ? !type.equals(that.type) : that.type != null) return false;
+        if (roomNo != that.roomNo) return false;
+        if (hostal != null ? !hostal.equals(that.hostal) : that.hostal != null) return false;
         if (floor != null ? !floor.equals(that.floor) : that.floor != null) return false;
-        if (noOfStudents != null ? !noOfStudents.equals(that.noOfStudents) : that.noOfStudents != null) return false;
+        if (roomType != null ? !roomType.equals(that.roomType) : that.roomType != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = roomId;
-        result = 31 * result + (type != null ? type.hashCode() : 0);
+        int result = roomNo;
+        result = 31 * result + (hostal != null ? hostal.hashCode() : 0);
         result = 31 * result + (floor != null ? floor.hashCode() : 0);
-        result = 31 * result + (noOfStudents != null ? noOfStudents.hashCode() : 0);
+        result = 31 * result + (roomType != null ? roomType.hashCode() : 0);
         return result;
     }
 
-    public Collection<AssetsEntity> getAssetsByRoomId() {
-        return assetsByRoomId;
+    public Collection<AssetsEntity> getAssetsByRoomNo() {
+        return assetsByRoomNo;
     }
 
-    public void setAssetsByRoomId(Collection<AssetsEntity> assetsByRoomId) {
-        this.assetsByRoomId = assetsByRoomId;
+    public void setAssetsByRoomNo(Collection<AssetsEntity> assetsByRoomNo) {
+        this.assetsByRoomNo = assetsByRoomNo;
     }
 
-    public Collection<ComplainsEntity> getComplainsByRoomId() {
-        return complainsByRoomId;
+    public Collection<ComplainsEntity> getComplainsByRoomNo() {
+        return complainsByRoomNo;
     }
 
-    public void setComplainsByRoomId(Collection<ComplainsEntity> complainsByRoomId) {
-        this.complainsByRoomId = complainsByRoomId;
+    public void setComplainsByRoomNo(Collection<ComplainsEntity> complainsByRoomNo) {
+        this.complainsByRoomNo = complainsByRoomNo;
     }
 }

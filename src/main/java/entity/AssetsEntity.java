@@ -1,4 +1,4 @@
-package com.hostal.hostal.entity;
+package entity;
 
 import jakarta.persistence.*;
 

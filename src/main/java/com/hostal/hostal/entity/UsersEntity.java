@@ -1,4 +1,4 @@
-package entity;
+package com.hostal.hostal.entity;
 
 import jakarta.persistence.*;
 
@@ -26,11 +26,7 @@ public class UsersEntity {
     @Basic
     @Column(name = "role_id")
     private int roleId;
-    @OneToMany(mappedBy = "usersByUserId")
-    private Collection<ComplainsEntity> complainsByUserId;
-    @ManyToOne
-    @JoinColumn(name = "role_id", referencedColumnName = "role_id", nullable = false)
-    private RolesEntity rolesByRoleId;
+
 
     public int getUserId() {
         return userId;
@@ -108,19 +104,6 @@ public class UsersEntity {
         return result;
     }
 
-    public Collection<ComplainsEntity> getComplainsByUserId() {
-        return complainsByUserId;
-    }
 
-    public void setComplainsByUserId(Collection<ComplainsEntity> complainsByUserId) {
-        this.complainsByUserId = complainsByUserId;
-    }
 
-    public RolesEntity getRolesByRoleId() {
-        return rolesByRoleId;
-    }
-
-    public void setRolesByRoleId(RolesEntity rolesByRoleId) {
-        this.rolesByRoleId = rolesByRoleId;
-    }
 }

@@ -21,8 +21,8 @@ public class AssetsEntity {
     @Column(name = "added_date")
     private Date addedDate;
     @Basic
-    @Column(name = "room_id")
-    private int roomId;
+    @Column(name = "room_no")
+    private int roomNo;
 
     public String getAssetsId() {
         return assetsId;
@@ -56,12 +56,12 @@ public class AssetsEntity {
         this.addedDate = addedDate;
     }
 
-    public int getRoomId() {
-        return roomId;
+    public int getRoomNo() {
+        return roomNo;
     }
 
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
+    public void setRoomNo(int roomNo) {
+        this.roomNo = roomNo;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class AssetsEntity {
 
         AssetsEntity that = (AssetsEntity) o;
 
-        if (roomId != that.roomId) return false;
+        if (roomNo != that.roomNo) return false;
         if (assetsId != null ? !assetsId.equals(that.assetsId) : that.assetsId != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
@@ -86,7 +86,7 @@ public class AssetsEntity {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (addedDate != null ? addedDate.hashCode() : 0);
-        result = 31 * result + roomId;
+        result = 31 * result + roomNo;
         return result;
     }
 }

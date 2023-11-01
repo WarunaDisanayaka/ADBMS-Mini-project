@@ -1,4 +1,4 @@
-package entity;
+package com.hostal.hostal.entity;
 
 import jakarta.persistence.*;
 
@@ -26,9 +26,7 @@ public class MaintainanceEntity {
     @Basic
     @Column(name = "date")
     private Date date;
-    @ManyToOne
-    @JoinColumn(name = "assets_id", referencedColumnName = "assets_id")
-    private AssetsEntity assetsByAssetsId;
+
 
     public int getMaintainanceId() {
         return maintainanceId;
@@ -107,11 +105,4 @@ public class MaintainanceEntity {
         return result;
     }
 
-    public AssetsEntity getAssetsByAssetsId() {
-        return assetsByAssetsId;
-    }
-
-    public void setAssetsByAssetsId(AssetsEntity assetsByAssetsId) {
-        this.assetsByAssetsId = assetsByAssetsId;
-    }
 }

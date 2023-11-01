@@ -1,4 +1,4 @@
-package entity;
+package com.hostal.hostal.entity;
 
 import jakarta.persistence.*;
 
@@ -32,9 +32,7 @@ public class ComplainsEntity {
     @Basic
     @Column(name = "user_id")
     private Integer userId;
-    @ManyToOne
-    @JoinColumn(name = "assets_id", referencedColumnName = "assets_id")
-    private AssetsEntity assetsByAssetsId;
+
 
     public int getComplainId() {
         return complainId;
@@ -134,11 +132,5 @@ public class ComplainsEntity {
         return result;
     }
 
-    public AssetsEntity getAssetsByAssetsId() {
-        return assetsByAssetsId;
-    }
 
-    public void setAssetsByAssetsId(AssetsEntity assetsByAssetsId) {
-        this.assetsByAssetsId = assetsByAssetsId;
-    }
 }

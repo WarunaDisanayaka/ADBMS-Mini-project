@@ -1,4 +1,4 @@
-package entity;
+package com.hostal.hostal.entity;
 
 import jakarta.persistence.*;
 
@@ -20,10 +20,7 @@ public class RoomsEntity {
     @Basic
     @Column(name = "room_type")
     private String roomType;
-    @OneToMany(mappedBy = "roomsByRoomNo")
-    private Collection<AssetsEntity> assetsByRoomNo;
-    @OneToMany(mappedBy = "roomsByRoomNo")
-    private Collection<ComplainsEntity> complainsByRoomNo;
+
 
     public int getRoomNo() {
         return roomNo;
@@ -81,19 +78,4 @@ public class RoomsEntity {
         return result;
     }
 
-    public Collection<AssetsEntity> getAssetsByRoomNo() {
-        return assetsByRoomNo;
-    }
-
-    public void setAssetsByRoomNo(Collection<AssetsEntity> assetsByRoomNo) {
-        this.assetsByRoomNo = assetsByRoomNo;
-    }
-
-    public Collection<ComplainsEntity> getComplainsByRoomNo() {
-        return complainsByRoomNo;
-    }
-
-    public void setComplainsByRoomNo(Collection<ComplainsEntity> complainsByRoomNo) {
-        this.complainsByRoomNo = complainsByRoomNo;
-    }
 }

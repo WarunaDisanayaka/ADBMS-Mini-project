@@ -1,4 +1,4 @@
-package entity;
+package com.hostal.hostal.entity;
 
 import jakarta.persistence.*;
 
@@ -18,11 +18,11 @@ public class AssetsEntity {
     @Column(name = "status")
     private String status;
     @Basic
+    @Column(name = "room_no")
+    private Integer roomNo;
+    @Basic
     @Column(name = "added_date")
     private Date addedDate;
-    @Basic
-    @Column(name = "room_no")
-    private int roomNo;
 
     public String getAssetsId() {
         return assetsId;
@@ -48,20 +48,20 @@ public class AssetsEntity {
         this.status = status;
     }
 
+    public Integer getRoomNo() {
+        return roomNo;
+    }
+
+    public void setRoomNo(Integer roomNo) {
+        this.roomNo = roomNo;
+    }
+
     public Date getAddedDate() {
         return addedDate;
     }
 
     public void setAddedDate(Date addedDate) {
         this.addedDate = addedDate;
-    }
-
-    public int getRoomNo() {
-        return roomNo;
-    }
-
-    public void setRoomNo(int roomNo) {
-        this.roomNo = roomNo;
     }
 
     @Override
@@ -71,10 +71,10 @@ public class AssetsEntity {
 
         AssetsEntity that = (AssetsEntity) o;
 
-        if (roomNo != that.roomNo) return false;
         if (assetsId != null ? !assetsId.equals(that.assetsId) : that.assetsId != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (roomNo != null ? !roomNo.equals(that.roomNo) : that.roomNo != null) return false;
         if (addedDate != null ? !addedDate.equals(that.addedDate) : that.addedDate != null) return false;
 
         return true;
@@ -85,8 +85,8 @@ public class AssetsEntity {
         int result = assetsId != null ? assetsId.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (roomNo != null ? roomNo.hashCode() : 0);
         result = 31 * result + (addedDate != null ? addedDate.hashCode() : 0);
-        result = 31 * result + roomNo;
         return result;
     }
 }

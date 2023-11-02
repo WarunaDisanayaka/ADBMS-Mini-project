@@ -63,4 +63,24 @@ public class UsersService {
         userRepository.deleteById(userId);
     }
 
+
+    public boolean authenticateUser(String username, String password) {
+        Optional<UsersEntity> user = userRepository.findByUsername(username);
+
+        if (user.isPresent()) {
+            UsersEntity usersEntity = user.get();
+            // Check if the provided password matches the stored hashed password
+            if (BCrypt.checkpw(password, usersEntity.getPassword())) {
+                return true; // Authentication successful
+            }
+        }
+
+        return false; // Authentication failed
+    }
+
+    public Integer getUserRole(String username) {
+        Optional<UsersEntity> user = userRepository.findByUsername(username);
+        return user.map(UsersEntity::getRoleId).orElse(null);
+    }
+
 }

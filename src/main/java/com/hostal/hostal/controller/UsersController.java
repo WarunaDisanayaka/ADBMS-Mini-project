@@ -15,7 +15,7 @@ public class UsersController {
 
     @Autowired
     private  UsersService usersService;
-    @GetMapping("/")
+    @GetMapping("/get-users")
     public List<UsersEntity> getAllUsers() {
         return usersService.getAllUsers();
     }

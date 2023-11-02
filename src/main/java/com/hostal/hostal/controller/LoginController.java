@@ -17,7 +17,7 @@ public class LoginController {
         this.usersService = usersService;
     }
 
-    @PostMapping("/")
+    @PostMapping("/user")
     public LoginResponse loginUser(@RequestBody LoginRequest loginRequest) {
         boolean isAuthenticated = usersService.authenticateUser(loginRequest.getUsername(), loginRequest.getPassword());
         String userRole = null;

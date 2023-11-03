@@ -7,7 +7,6 @@ import java.util.Collection;
 @Entity
 @Table(name = "rooms", schema = "hostal", catalog = "")
 public class RoomsEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "room_id")
     private String roomId;

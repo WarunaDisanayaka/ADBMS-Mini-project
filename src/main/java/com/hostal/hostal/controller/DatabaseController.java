@@ -18,7 +18,7 @@ public class DatabaseController {
     public String checkDatabase() {
         try {
             jdbcTemplate.queryForObject("SELECT 1", Integer.class);
-            return "Database is working!";
+            return "Database connected!";
         } catch (Exception e) {
             return "Error while checking the database: " + e.getMessage();
         }

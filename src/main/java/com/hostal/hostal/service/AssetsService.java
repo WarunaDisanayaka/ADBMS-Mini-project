@@ -17,15 +17,17 @@ public class AssetsService {
         return assetsRepository.findAll();
     }
 
-    public AssetsEntity getAssetById(Long id) {
+
+    public AssetsEntity getAssetById(String id) {
         return assetsRepository.findById(id).orElse(null);
     }
+
 
     public AssetsEntity createAsset(AssetsEntity asset) {
         return assetsRepository.save(asset);
     }
 
-    public AssetsEntity updateAsset(Long id, AssetsEntity asset) {
+    public AssetsEntity updateAsset(String id, AssetsEntity asset) {
         if (assetsRepository.existsById(id)) {
             asset.setAssetsId(String.valueOf(id));
             return assetsRepository.save(asset);
@@ -33,7 +35,7 @@ public class AssetsService {
         return null;
     }
 
-    public void deleteAsset(Long id) {
+    public void deleteAsset(String id) {
         assetsRepository.deleteById(id);
     }
 }

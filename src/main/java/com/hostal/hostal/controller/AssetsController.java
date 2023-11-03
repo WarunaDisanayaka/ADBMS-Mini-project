@@ -31,10 +31,13 @@ public class AssetsController {
         return assetsService.getAllAssets();
     }
 
+
     @GetMapping("/{id}")
     public AssetsEntity getAsset(@PathVariable Long id) {
-        return assetsService.getAssetById(id);
+        String stringId = String.valueOf(id);
+        return assetsService.getAssetById(stringId);
     }
+
 
     @PostMapping("/")
     public AssetsEntity createAsset(@RequestBody AssetsEntity asset) {
@@ -78,12 +81,12 @@ public class AssetsController {
 
 
     @PutMapping("/{id}")
-    public AssetsEntity updateAsset(@PathVariable Long id, @RequestBody AssetsEntity asset) {
+    public AssetsEntity updateAsset(@PathVariable String id, @RequestBody AssetsEntity asset) {
         return assetsService.updateAsset(id, asset);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAsset(@PathVariable Long id) {
+    public void deleteAsset(@PathVariable String id) {
         assetsService.deleteAsset(id);
     }
 

@@ -5,7 +5,6 @@ import com.hostal.hostal.service.RolesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.management.relation.Role;
 import java.util.List;
 
 @RestController

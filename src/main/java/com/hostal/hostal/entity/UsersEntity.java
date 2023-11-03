@@ -27,7 +27,6 @@ public class UsersEntity {
     @Column(name = "role_id")
     private int roleId;
 
-
     public int getUserId() {
         return userId;
     }
@@ -103,7 +102,6 @@ public class UsersEntity {
         result = 31 * result + roleId;
         return result;
     }
-
 
 
 }

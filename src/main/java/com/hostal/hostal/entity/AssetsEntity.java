@@ -7,7 +7,6 @@ import java.sql.Date;
 @Entity
 @Table(name = "assets", schema = "hostal", catalog = "")
 public class AssetsEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "assets_id")
     private String assetsId;
@@ -18,11 +17,15 @@ public class AssetsEntity {
     @Column(name = "status")
     private String status;
     @Basic
-    @Column(name = "room_no")
-    private Integer roomNo;
+    @Column(name = "room_id")
+    private String roomId;
     @Basic
     @Column(name = "added_date")
     private Date addedDate;
+
+    @Basic
+    @Column(name = "qr_code_path")
+    private String qrCodePath;
 
     public String getAssetsId() {
         return assetsId;
@@ -48,12 +51,12 @@ public class AssetsEntity {
         this.status = status;
     }
 
-    public Integer getRoomNo() {
-        return roomNo;
+    public String getRoomId() {
+        return roomId;
     }
 
-    public void setRoomNo(Integer roomNo) {
-        this.roomNo = roomNo;
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 
     public Date getAddedDate() {
@@ -63,6 +66,15 @@ public class AssetsEntity {
     public void setAddedDate(Date addedDate) {
         this.addedDate = addedDate;
     }
+
+    public String getQrCodePath() {
+        return qrCodePath;
+    }
+
+    public void setQrCodePath(String qrCodePath) {
+        this.qrCodePath = qrCodePath;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -74,7 +86,7 @@ public class AssetsEntity {
         if (assetsId != null ? !assetsId.equals(that.assetsId) : that.assetsId != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
-        if (roomNo != null ? !roomNo.equals(that.roomNo) : that.roomNo != null) return false;
+        if (roomId != null ? !roomId.equals(that.roomId) : that.roomId != null) return false;
         if (addedDate != null ? !addedDate.equals(that.addedDate) : that.addedDate != null) return false;
 
         return true;
@@ -85,7 +97,7 @@ public class AssetsEntity {
         int result = assetsId != null ? assetsId.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (roomNo != null ? roomNo.hashCode() : 0);
+        result = 31 * result + (roomId != null ? roomId.hashCode() : 0);
         result = 31 * result + (addedDate != null ? addedDate.hashCode() : 0);
         return result;
     }

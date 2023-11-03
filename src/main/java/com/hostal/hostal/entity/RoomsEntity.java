@@ -7,10 +7,12 @@ import java.util.Collection;
 @Entity
 @Table(name = "rooms", schema = "hostal", catalog = "")
 public class RoomsEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name = "room_id")
+    private String roomId;
+    @Basic
     @Column(name = "room_no")
-    private int roomNo;
+    private Integer roomNo;
     @Basic
     @Column(name = "hostal")
     private String hostal;
@@ -21,12 +23,19 @@ public class RoomsEntity {
     @Column(name = "room_type")
     private String roomType;
 
+    public String getRoomId() {
+        return roomId;
+    }
 
-    public int getRoomNo() {
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
+    public Integer getRoomNo() {
         return roomNo;
     }
 
-    public void setRoomNo(int roomNo) {
+    public void setRoomNo(Integer roomNo) {
         this.roomNo = roomNo;
     }
 
@@ -61,7 +70,8 @@ public class RoomsEntity {
 
         RoomsEntity that = (RoomsEntity) o;
 
-        if (roomNo != that.roomNo) return false;
+        if (roomId != null ? !roomId.equals(that.roomId) : that.roomId != null) return false;
+        if (roomNo != null ? !roomNo.equals(that.roomNo) : that.roomNo != null) return false;
         if (hostal != null ? !hostal.equals(that.hostal) : that.hostal != null) return false;
         if (floor != null ? !floor.equals(that.floor) : that.floor != null) return false;
         if (roomType != null ? !roomType.equals(that.roomType) : that.roomType != null) return false;
@@ -71,11 +81,13 @@ public class RoomsEntity {
 
     @Override
     public int hashCode() {
-        int result = roomNo;
+        int result = roomId != null ? roomId.hashCode() : 0;
+        result = 31 * result + (roomNo != null ? roomNo.hashCode() : 0);
         result = 31 * result + (hostal != null ? hostal.hashCode() : 0);
         result = 31 * result + (floor != null ? floor.hashCode() : 0);
         result = 31 * result + (roomType != null ? roomType.hashCode() : 0);
         return result;
     }
+
 
 }

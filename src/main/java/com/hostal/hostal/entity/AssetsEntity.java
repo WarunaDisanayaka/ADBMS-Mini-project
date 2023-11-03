@@ -23,6 +23,10 @@ public class AssetsEntity {
     @Column(name = "added_date")
     private Date addedDate;
 
+    @Basic
+    @Column(name = "qr_code_path")
+    private String qrCodePath;
+
     public String getAssetsId() {
         return assetsId;
     }
@@ -62,6 +66,15 @@ public class AssetsEntity {
     public void setAddedDate(Date addedDate) {
         this.addedDate = addedDate;
     }
+
+    public String getQrCodePath() {
+        return qrCodePath;
+    }
+
+    public void setQrCodePath(String qrCodePath) {
+        this.qrCodePath = qrCodePath;
+    }
+
 
     @Override
     public boolean equals(Object o) {

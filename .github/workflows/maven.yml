@@ -13,12 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up JDK 17
+      - name: Set up JDK 17 with Temurin
         run: |
           echo "Set up JDK 17 with Temurin"
-          curl -L -o temurin.tar.gz https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.0%2B35/OpenJDK17U-jdk_x64_linux_hotspot_17.0.0_35.tar.gz
-          tar xzf temurin.tar.gz
-          export JAVA_HOME=$PWD/jdk-17.0.0+35
+          mkdir -p $RUNNER_TEMP/temurin
+          curl -L -o $RUNNER_TEMP/temurin/temurin.tar.gz https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.0%2B35/OpenJDK17U-jdk_x64_linux_hotspot_17.0.0_35.tar.gz
+          tar xzf $RUNNER_TEMP/temurin/temurin.tar.gz -C $RUNNER_TEMP/temurin
+          export JAVA_HOME=$RUNNER_TEMP/temurin/jdk-17.0.0_35
           export PATH=$JAVA_HOME/bin:$PATH
 
       - name: Build with Maven

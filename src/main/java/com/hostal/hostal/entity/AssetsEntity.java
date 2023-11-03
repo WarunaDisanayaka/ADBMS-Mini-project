@@ -7,7 +7,6 @@ import java.sql.Date;
 @Entity
 @Table(name = "assets", schema = "hostal", catalog = "")
 public class AssetsEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "assets_id")
     private String assetsId;

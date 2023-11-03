@@ -18,8 +18,8 @@ public class ComplainsEntity {
     @Column(name = "status")
     private String status;
     @Basic
-    @Column(name = "room_no")
-    private Integer roomNo;
+    @Column(name = "room_id")
+    private String roomId;
     @Basic
     @Column(name = "assets_id")
     private String assetsId;
@@ -58,12 +58,12 @@ public class ComplainsEntity {
         this.status = status;
     }
 
-    public Integer getRoomNo() {
-        return roomNo;
+    public String getRoomId() {
+        return roomId;
     }
 
-    public void setRoomNo(Integer roomNo) {
-        this.roomNo = roomNo;
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 
     public String getAssetsId() {
@@ -109,7 +109,7 @@ public class ComplainsEntity {
         if (complainDescription != null ? !complainDescription.equals(that.complainDescription) : that.complainDescription != null)
             return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
-        if (roomNo != null ? !roomNo.equals(that.roomNo) : that.roomNo != null) return false;
+        if (roomId != null ? !roomId.equals(that.roomId) : that.roomId != null) return false;
         if (assetsId != null ? !assetsId.equals(that.assetsId) : that.assetsId != null) return false;
         if (evidenceImage != null ? !evidenceImage.equals(that.evidenceImage) : that.evidenceImage != null)
             return false;
@@ -124,7 +124,7 @@ public class ComplainsEntity {
         int result = complainId;
         result = 31 * result + (complainDescription != null ? complainDescription.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (roomNo != null ? roomNo.hashCode() : 0);
+        result = 31 * result + (roomId != null ? roomId.hashCode() : 0);
         result = 31 * result + (assetsId != null ? assetsId.hashCode() : 0);
         result = 31 * result + (evidenceImage != null ? evidenceImage.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
@@ -132,5 +132,5 @@ public class ComplainsEntity {
         return result;
     }
 
-
+   
 }

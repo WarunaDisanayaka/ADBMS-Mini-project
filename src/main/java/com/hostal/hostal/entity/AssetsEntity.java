@@ -27,7 +27,7 @@ public class AssetsEntity {
     @Column(name = "qr_code_path")
     private String qrCodePath;
 
-    
+
 
     public String getAssetsId() {
         return assetsId;
@@ -77,8 +77,7 @@ public class AssetsEntity {
         this.qrCodePath = qrCodePath;
     }
 
-
-
+    
 
     @Override
     public boolean equals(Object o) {

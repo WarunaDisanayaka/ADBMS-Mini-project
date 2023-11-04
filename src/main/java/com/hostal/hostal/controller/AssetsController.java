@@ -18,6 +18,7 @@ import java.util.Hashtable;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/assets")
 public class AssetsController {
 

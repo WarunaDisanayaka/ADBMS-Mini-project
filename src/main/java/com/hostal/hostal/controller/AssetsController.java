@@ -56,7 +56,7 @@ public class AssetsController {
                 directory.mkdirs();
             }
 
-            
+
 
             // Define the file path for the QR code image
             String qrCodeFilePath = QR_CODE_DIRECTORY + File.separator + "qr_" + asset.getAssetsId() + ".png";
@@ -65,6 +65,8 @@ public class AssetsController {
             BufferedImage image = toBufferedImage(bitMatrix);
             File qrCodeFile = new File(qrCodeFilePath);
             ImageIO.write(image, "PNG", qrCodeFile);
+
+            
 
             // Set the QR code file path in the asset entity
             asset.setQrCodePath(qrCodeFilePath);

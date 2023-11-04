@@ -56,6 +56,8 @@ public class AssetsController {
                 directory.mkdirs();
             }
 
+            
+
             // Define the file path for the QR code image
             String qrCodeFilePath = QR_CODE_DIRECTORY + File.separator + "qr_" + asset.getAssetsId() + ".png";
 

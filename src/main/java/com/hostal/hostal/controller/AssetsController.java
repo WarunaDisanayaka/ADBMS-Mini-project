@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping("/assets")
 public class AssetsController {
 
-    
+
 
     private static final String QR_CODE_DIRECTORY = "qrcodes";
 

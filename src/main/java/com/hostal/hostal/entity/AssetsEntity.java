@@ -76,6 +76,8 @@ public class AssetsEntity {
     }
 
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,6 +94,7 @@ public class AssetsEntity {
         return true;
     }
 
+    
     @Override
     public int hashCode() {
         int result = assetsId != null ? assetsId.hashCode() : 0;

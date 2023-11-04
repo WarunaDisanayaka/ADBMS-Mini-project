@@ -21,6 +21,8 @@ import java.util.List;
 @RequestMapping("/assets")
 public class AssetsController {
 
+    
+
     private static final String QR_CODE_DIRECTORY = "qrcodes";
 
     @Autowired
@@ -66,7 +68,7 @@ public class AssetsController {
             File qrCodeFile = new File(qrCodeFilePath);
             ImageIO.write(image, "PNG", qrCodeFile);
 
-            
+
 
             // Set the QR code file path in the asset entity
             asset.setQrCodePath(qrCodeFilePath);

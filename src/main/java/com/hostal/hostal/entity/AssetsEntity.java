@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 
+
 @Entity
 @Table(name = "assets", schema = "hostal", catalog = "")
 public class AssetsEntity {
@@ -77,7 +78,7 @@ public class AssetsEntity {
         this.qrCodePath = qrCodePath;
     }
 
-    
+
 
     @Override
     public boolean equals(Object o) {

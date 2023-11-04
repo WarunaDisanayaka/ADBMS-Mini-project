@@ -83,4 +83,10 @@ public class UsersService {
         return user.map(UsersEntity::getRoleId).orElse(null);
     }
 
+    public Integer getUserIdByUsername(String username) {
+        Optional<UsersEntity> user = userRepository.findByUsername(username);
+        return user.map(UsersEntity::getUserId).orElse(null);
+    }
+
+
 }

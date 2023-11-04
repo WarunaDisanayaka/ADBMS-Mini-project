@@ -22,11 +22,15 @@ public class LoginController {
     public LoginResponse loginUser(@RequestBody LoginRequest loginRequest) {
         boolean isAuthenticated = usersService.authenticateUser(loginRequest.getUsername(), loginRequest.getPassword());
         String userRole = null;
+        Long userId = null;
+
 
         if (isAuthenticated) {
             userRole = String.valueOf(usersService.getUserRole(loginRequest.getUsername()));
+            userId = Long.valueOf(usersService.getUserIdByUsername(loginRequest.getUsername())); // Use the appropriate method to get the user's ID
+
         }
 
-        return new LoginResponse(isAuthenticated, userRole);
+        return new LoginResponse(isAuthenticated, userRole, userId);
     }
 }

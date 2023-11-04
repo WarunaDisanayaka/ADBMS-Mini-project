@@ -27,6 +27,8 @@ public class AssetsEntity {
     @Column(name = "qr_code_path")
     private String qrCodePath;
 
+    
+
     public String getAssetsId() {
         return assetsId;
     }
@@ -94,7 +96,7 @@ public class AssetsEntity {
         return true;
     }
 
-    
+
     @Override
     public int hashCode() {
         int result = assetsId != null ? assetsId.hashCode() : 0;

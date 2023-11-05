@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 
-
 @Entity
 @Table(name = "assets", schema = "hostal", catalog = "")
 public class AssetsEntity {
@@ -92,7 +91,7 @@ public class AssetsEntity {
 
         return true;
     }
-    
+
     @Override
     public int hashCode() {
         int result = assetsId != null ? assetsId.hashCode() : 0;

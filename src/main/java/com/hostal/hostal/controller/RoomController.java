@@ -27,11 +27,12 @@ public class RoomController {
         return roomsService.getAllRooms();
     }
 
+    //endpoint for get all room ids list
     @GetMapping("/get-all-room-ids")
     public List<String> getAllRoomIds(){
         return roomsService.getAllRoomIds();
     }
-
+    
     @GetMapping("/get-room-by-id/{roomId}")
     public RoomsEntity getRoomById(@PathVariable String roomId){
         return roomsService.getRoomById(roomId);

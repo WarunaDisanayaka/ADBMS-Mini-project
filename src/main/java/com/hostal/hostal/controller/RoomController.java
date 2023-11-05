@@ -45,6 +45,7 @@ public class RoomController {
         return roomsService.updateRoom(roomId, room);
     }
 
+    //endpoint for delete room details using id
     @DeleteMapping("/delete-room/{roomId}")
     public void deleteRoom(@PathVariable String roomId){
         roomsService.deleteRoom(roomId);

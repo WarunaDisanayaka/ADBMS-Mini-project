@@ -8,7 +8,7 @@ public class TestController {
 
     @GetMapping("/welcome")
     public String welcome(){
-        return "WELCOME TO HOSTEL";
+        return "Api is working";
     }
 
     @GetMapping("/hello")

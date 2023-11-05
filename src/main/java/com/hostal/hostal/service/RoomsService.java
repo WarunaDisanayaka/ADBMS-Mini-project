@@ -38,6 +38,8 @@ public class RoomsService{
         }
         return roomIds;
     }
+
+    //method for get rooms using id
     public RoomsEntity getRoomById(String roomId){
         return roomsRepository.findById(roomId).orElse(null);
     }

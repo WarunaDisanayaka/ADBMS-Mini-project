@@ -82,9 +82,22 @@ public class AssetsController {
 
 
     @PutMapping("/{id}")
-    public AssetsEntity updateAsset(@PathVariable String id, @RequestBody AssetsEntity asset) {
-        return assetsService.updateAsset(id, asset);
+    public AssetsEntity updateAsset(@PathVariable String id, @RequestBody AssetsEntity updatedAsset) {
+        AssetsEntity existingAsset = assetsService.getAssetById(id);
+
+        if (existingAsset != null) {
+            // Update the fields you want to change
+            existingAsset.setName(updatedAsset.getName());
+            existingAsset.setRoomId(updatedAsset.getRoomId());
+
+            // Save the updated asset entity in the database
+            return assetsService.updateAsset(id, existingAsset);
+        } else {
+            // Handle the case where the asset with the given ID does not exist
+            return null;
+        }
     }
+
 
     @DeleteMapping("/{id}")
     public void deleteAsset(@PathVariable String id) {

@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -37,10 +38,31 @@ public class ComplainsController {
         return complainsService.createComplain(complain);
     }
     @PutMapping("/{complainId}")
-    public ResponseEntity<ComplainsEntity> updateComplain(@PathVariable int complainId, @RequestBody ComplainsEntity updatedComplain) {
-        Optional<ComplainsEntity> complain = complainsService.updateComplain(complainId, updatedComplain);
-        return complain.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<Optional<ComplainsEntity>> updateComplainStatus(
+            @PathVariable int complainId,
+            @RequestBody Map<String, String> request) {
+        Optional<ComplainsEntity> existingComplain = complainsService.getComplainById(complainId);
+
+        if (existingComplain.isPresent()) {
+            ComplainsEntity complain = existingComplain.get();
+            String newStatus = request.get("status");
+
+            if (newStatus != null) {
+                // Update the "status" field
+                complain.setStatus(newStatus);
+
+                // Save the updated complain
+                Optional<ComplainsEntity> updatedComplain = complainsService.updateComplain(complainId, complain);
+
+                return ResponseEntity.ok(updatedComplain);
+            } else {
+                return ResponseEntity.badRequest().build(); // Return a bad request if "status" is not provided in the request
+            }
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
+
 
     @DeleteMapping("/{complainId}")
     public ResponseEntity<Void> deleteComplain(@PathVariable int complainId) {

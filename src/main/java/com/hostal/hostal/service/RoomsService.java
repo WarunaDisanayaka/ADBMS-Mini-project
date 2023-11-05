@@ -19,6 +19,7 @@ public class RoomsService{
         this.roomsRepository = roomsRepository;
     }
 
+    //method for insert room details
     public RoomsEntity saveRoom(RoomsEntity room){
         return roomsRepository.save(room);
     }

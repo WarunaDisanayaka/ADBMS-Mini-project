@@ -15,6 +15,7 @@ public class RoomController {
     @Autowired
     private RoomsService roomsService;
 
+//    endpoint for create room
     @PostMapping("/create-room")
     public RoomsEntity createRoom(@RequestBody RoomsEntity room){
         return roomsService.saveRoom(room);

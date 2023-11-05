@@ -29,6 +29,7 @@ public class RoomsService{
         return roomsRepository.findAll();
     }
 
+    //method for get all room ids as a list
     public List<String> getAllRoomIds(){
         List<RoomsEntity> rooms = roomsRepository.findAll();
         List<String> roomIds = new ArrayList<>();

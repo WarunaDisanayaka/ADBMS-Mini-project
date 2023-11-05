@@ -24,6 +24,7 @@ public class RoomsService{
         return roomsRepository.save(room);
     }
 
+    //method for get all room details
     public List<RoomsEntity> getAllRooms(){
         return roomsRepository.findAll();
     }

@@ -24,6 +24,8 @@ public class AssetsEntity {
     @Column(name = "added_date")
     private Date addedDate;
 
+
+    
     @Basic
     @Column(name = "qr_code_path")
     private String qrCodePath;

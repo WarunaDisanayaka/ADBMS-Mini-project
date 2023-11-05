@@ -32,7 +32,8 @@ public class RoomController {
     public List<String> getAllRoomIds(){
         return roomsService.getAllRoomIds();
     }
-    
+
+    //endpoint for get room by id
     @GetMapping("/get-room-by-id/{roomId}")
     public RoomsEntity getRoomById(@PathVariable String roomId){
         return roomsService.getRoomById(roomId);

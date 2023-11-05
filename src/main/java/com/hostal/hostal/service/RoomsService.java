@@ -44,6 +44,7 @@ public class RoomsService{
         return roomsRepository.findById(roomId).orElse(null);
     }
 
+    //method for update rooms using id
     public RoomsEntity updateRoom(String roomId, RoomsEntity room){
         if(roomsRepository.existsById(roomId)){
             room.setRoomId(roomId);
@@ -52,6 +53,7 @@ public class RoomsService{
         return null;
     }
 
+    //method for delete rooms using id
     public void deleteRoom(String roomId){
         roomsRepository.deleteById(roomId);
     }

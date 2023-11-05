@@ -11,11 +11,9 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/roles")
 public class RolesController {
-
     @Autowired
     private RolesService rolesService;
-
-
+    
     @GetMapping("/get-roles")
     public List<RolesEntity> getAllRoles(){
         return rolesService.getAllRoles();

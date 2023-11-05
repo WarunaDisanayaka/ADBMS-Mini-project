@@ -39,6 +39,7 @@ public class RoomController {
         return roomsService.getRoomById(roomId);
     }
 
+    //endpoint for update room data using id
     @PutMapping("/update-room/{roomId}")
     public RoomsEntity updateRoom(@PathVariable String roomId, @RequestBody RoomsEntity room){
         return roomsService.updateRoom(roomId, room);

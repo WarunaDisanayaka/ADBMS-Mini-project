@@ -1,6 +1,5 @@
 package com.hostal.hostal.controller;
 
-
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.qrcode.QRCodeWriter;
@@ -20,7 +19,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/assets")
 public class AssetsController {
-
 
     private static final String QR_CODE_DIRECTORY = "qrcodes";
 

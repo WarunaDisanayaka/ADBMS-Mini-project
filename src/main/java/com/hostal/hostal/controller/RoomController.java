@@ -21,6 +21,7 @@ public class RoomController {
         return roomsService.saveRoom(room);
     }
 
+    //    endpoint for get all rooms list
     @GetMapping("/get-all-rooms")
     public List<RoomsEntity> getAllRooms(){
         return roomsService.getAllRooms();

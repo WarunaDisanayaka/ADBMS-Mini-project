@@ -4,6 +4,9 @@ public class LoginRequest {
     private String username;
     private String password;
 
+    private Long userId; // Add this field for userId
+
+
     // Getters and setters
 
     public String getUsername() {
@@ -20,5 +23,14 @@ public class LoginRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

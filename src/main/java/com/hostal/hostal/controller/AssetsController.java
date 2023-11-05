@@ -22,7 +22,6 @@ import java.util.List;
 public class AssetsController {
 
 
-
     private static final String QR_CODE_DIRECTORY = "qrcodes";
 
     @Autowired
@@ -59,7 +58,6 @@ public class AssetsController {
             }
 
 
-
             // Define the file path for the QR code image
             String qrCodeFilePath = QR_CODE_DIRECTORY + File.separator + "qr_" + asset.getAssetsId() + ".png";
 
@@ -67,7 +65,6 @@ public class AssetsController {
             BufferedImage image = toBufferedImage(bitMatrix);
             File qrCodeFile = new File(qrCodeFilePath);
             ImageIO.write(image, "PNG", qrCodeFile);
-
 
 
             // Set the QR code file path in the asset entity
@@ -81,7 +78,6 @@ public class AssetsController {
             return null;
         }
     }
-
 
     @PutMapping("/{id}")
     public AssetsEntity updateAsset(@PathVariable Long id, @RequestBody AssetsEntity asset) {
